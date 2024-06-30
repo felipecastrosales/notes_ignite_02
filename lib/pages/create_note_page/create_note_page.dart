@@ -4,8 +4,10 @@ import 'components/button_save_widget.dart';
 import 'components/input_field_widget.dart';
 
 class CreateNotePage extends StatefulWidget {
+  const CreateNotePage({super.key});
+
   @override
-  _CreateNotePageState createState() => _CreateNotePageState();
+  State<CreateNotePage> createState() => _CreateNotePageState();
 }
 
 class _CreateNotePageState extends State<CreateNotePage> {
@@ -16,7 +18,7 @@ class _CreateNotePageState extends State<CreateNotePage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       if (ModalRoute.of(context)!.settings.arguments != null) {
         description = ModalRoute.of(context)!.settings.arguments as String;
         textController.text = description;
@@ -36,7 +38,7 @@ class _CreateNotePageState extends State<CreateNotePage> {
         actions: [
           if (isEdit)
             IconButton(
-              icon: Icon(Icons.delete),
+              icon: const Icon(Icons.delete),
               onPressed: () => Navigator.pop(context, description),
             ),
         ],
@@ -52,8 +54,8 @@ class _CreateNotePageState extends State<CreateNotePage> {
                 setState(() => description = value);
               },
             ),
-            SizedBox(height: 32),
-            if (description.isNotEmpty) 
+            const SizedBox(height: 32),
+            if (description.isNotEmpty)
               ButtonSaveWidget(
                 onPressed: () => Navigator.pop(context, description),
               ),
