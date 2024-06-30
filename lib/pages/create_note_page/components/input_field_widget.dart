@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class InputFieldWidget extends StatelessWidget {
+  const InputFieldWidget({
+    super.key,
+    required this.textController,
+    required this.onChanged,
+  });
+
   final TextEditingController textController;
   final ValueChanged<String> onChanged;
-
-  const InputFieldWidget({
-    Key? key, 
-    required this.textController, 
-    required this.onChanged,
-  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class InputFieldWidget extends StatelessWidget {
       controller: textController,
       maxLines: null,
       onChanged: onChanged,
-      decoration: InputDecoration(labelText: 'Description'),
+      decoration: const InputDecoration(labelText: 'Description'),
     );
   }
 }

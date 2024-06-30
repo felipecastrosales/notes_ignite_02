@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ButtonSaveWidget extends StatelessWidget {
-  final VoidCallback onPressed;
   const ButtonSaveWidget({
-    Key? key, 
+    super.key,
     required this.onPressed,
-  }) : super(key: key);
+  });
+
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +16,8 @@ class ButtonSaveWidget extends StatelessWidget {
         SizedBox(
           width: 250,
           child: ElevatedButton(
-            onPressed: onPressed, 
-            child: Text('Save'),
+            onPressed: onPressed,
+            child: const Text('Save'),
           ),
         ),
       ],
